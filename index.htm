@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="heading">Multi Functional Calculator</h1>
+
+    <label for="first" id="fs">Enter First Addend</label>
+    <input type="number" name="first" id="first" required placeholder="Enter The Value" />
+
+    <label for="operator" id="oprt">Choose Operator</label>
+    <select name="operator" id="operator" required onchange="changeInputType()">
+      <option value="+">Addition(+)</option>
+      <option value="-">Subtraction(-)</option>
+      <option value="×">Multiplication(×)</option>
+      <option value="/">Division(/)</option>
+      <option value="%">Modulo(%)</option>
+      <option value="pow">Power of X</option>
+      <option value="disc">Discount(%)</option>
+      <option value="sqrt">Square Root</option>
+      <option value="abso">Absolute Value</option>
+      <option value="age">Age Calculate</option>
+      <option value="gst">GST Calculate</option>
+      <option value="date">Date Calculate</option>
+      <option value="loan">Loan Calculate</option>
+      <option value="dte">Date Of Birth Calculation</option>
+    </select>
+
+    <label for="second" id="sc">Enter Second Addend</label>
+    <input type="number" name="" id="second" required placeholder="Enter The Value" />
+
+    <label for="res" id="clc">Sum</label>
+    <input type="text" readonly="" id="res" placeholder="Result Box" />
+    <p id="savePrice"></p>
+    <button onclick="cal()" id="btn">Calculate</button>
+  </div>
+
+  <script>
+    function changeInputType() {
+      const operator = document.getElementById('operator').value;
+      const secondInput = document.getElementById('second');
+      const secondLabel = document.getElementById('sc');
+
+      if (operator === 'date') {
+        secondInput.type = 'date';
+        secondLabel.textContent = 'Enter Date';
+        secondInput.placeholder = 'Select a Date';
+      } else {
+        secondInput.type = 'number';
+        secondLabel.textContent = 'Enter Second Addend';
+        secondInput.placeholder = 'Enter The Value';
+      }
+    }
+  </script>
+  <script src="index.js"></script>
+</body>
+
+</html>
